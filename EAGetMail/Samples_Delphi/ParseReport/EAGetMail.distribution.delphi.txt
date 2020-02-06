@@ -1,0 +1,33 @@
+
+Manifest file:
+    - Describes the names and versions of shared side-by-side assemblies that the application should 
+      bind to at run time and may also contain metadata for private side-by-side assemblies used by the application.
+      It helps to distribute EAGetMail ActiveX/COM object without regsvr32.exe.
+
+Installation folder\manifest
+    - EAGetMailObj.manifest describes EAGetMailObj com class interface.
+    - EAGetMailObj.XP.manifest describes EAGetMailObj com class interface with Microsoft.Windows.Common-Controls 6.0.
+
+    - EAGetMailObj.manifest.res is a resource file which contains EAGetMailObj.manifest
+    - EAGetMailObj.XP.manifest.res is a resource file which contains EAGetMailObj.XP.manifest
+
+
+- Delphi 7 
+  project.res contains the EAGetMailObj.manifest.
+  project1.dpr contains "{$R *.res}", manifest file will be compiled to project1.exe automatically.
+  Copy Lib\native\x86\EAGetMailObj.dll to the same folder of .exe, then it works fine.
+
+  Do not include XPMan unit in your project, if you need XPMan, delete current project1.res, 
+  and copy Include\manifest\EAGetMailObj.XP.manifest.res to your project folder,  rename it to project1.res.
+
+- Delphi XE or later versions
+  Project1.manifest is a copy of EAGetMailObj.manifest. 
+  Delphi XE or later versions supports embedded manifest, 
+  Go to "Project -> Options -> Application" and set "Runtime Themes" to "Use > custom manifest", 
+  then pick EAGetMailObj.manifest or EAGetMailObj.XP.manifest.
+
+  Copy Lib\native\x86\EAGetMailObj.dll (32bit) or  Lib\native\x64\EAGetMailObj.dll (64bit) to 
+  the same folder of .exe, then it works fine.
+
+  
+Note: EAGetMail .NET Assembly doesn't require manifest file.
