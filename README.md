@@ -8,4 +8,4 @@ OSRR is the Operating System Round Robin scheduler simulation (Java)
 
 userlib2 contains jar libraries for use with JMS
 
-EAGet/SendMail is the library for the Visual Basic .NET EmailClient
+EAGet/SendMail is the library for an unfinished Visual Basic .NET EmailClient
